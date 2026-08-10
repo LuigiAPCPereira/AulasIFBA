@@ -5,7 +5,7 @@ int main(){
     int b = 0;
     int c = 0;
 
-    printf("Digite um lados de um triangulo: \n");
+    printf("Digite um lados de um triangulo: \n \n");
     printf("Lado A, B, C: ");
     scanf("%d %d %d", &a,&b,&c);
 

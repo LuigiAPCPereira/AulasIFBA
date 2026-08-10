@@ -1,12 +1,14 @@
 #include<stdio.h>
 
-int main(){
-    int numero =0;
-    printf("Digite um número \n");
-    printf("Número: ");
-    scanf("%d" , &numero);
+// Calculadora de Impar e Par
 
-    if(numero%2==0){
+int main(){
+    int numero =0; // número é zero
+    printf("Digite um número \n"); //printf significa que escreve uma mensagem para usuário.
+    printf("Número: ");
+    scanf("%d" , &numero); // scanf significa que o programa está esperando do usuário uma resposta.
+
+    if(numero%2==0){  // Se o mod de número é 2 e ele for igual a 0 ele é par
         printf("Seu número é: ");
         printf("Par \n");
     }
