@@ -43,12 +43,35 @@ programacao-ifba/
 │   └── triangulo.c
 │
 ├── .gitignore
+├── LICENSE
 └── README.md
 ```
 
 A pasta `src/` contém os arquivos de código-fonte desenvolvidos durante as aulas.
 
 Conforme novos exercícios forem criados, novos arquivos poderão ser adicionados à pasta.
+
+---
+
+## 📝 Lista de Exercícios (Repetição)
+
+Lista de exercícios passados pelo professor — implementar em **C** (não mais fluxogramas).
+O progresso também pode ser acompanhado pelo [GitHub Projects](https://github.com/users/LuigiAPCPereira/projects) do repositório.
+
+| # | Status | Enunciado | Arquivo |
+|---|--------|-----------|---------|
+| 01 | ⬜ | Número primo: recebe um inteiro positivo e diz se é primo. | `src/primo.c` |
+| 02 | ⬜ | Fatorial: recebe um inteiro positivo e calcula seu fatorial. | `src/fatorial.c` |
+| 03 | ⬜ | Soma até zero: lê inteiros até digitar 0 e imprime a soma total. | `src/soma-ate-zero.c` |
+| 04 | ⬜ | Tabuada: recebe um inteiro e imprime a tabuada de 1 a 10 com loop. | `src/tabuada.c` |
+| 05 | ⬜ | Maior e menor de 10: lê 10 inteiros e informa o maior e o menor. | `src/maior-menor-10.c` |
+| 06 | ⬜ | Fibonacci: recebe N>0 e imprime os N primeiros termos da sequência. | `src/fibonacci.c` |
+| 07 | ⬜ | Conta pares e ímpares: lê inteiros até um negativo e conta pares/ímpares. | `src/conta-par-impar.c` |
+| 08 | ⬜ | Divisão por subtração: calcula quociente e resto só com subtração e loop. | `src/divisao-subtracao.c` |
+| 09 | ⬜ | Média de notas válidas: lê notas 0–10 até uma inválida e calcula a média das válidas. | `src/media-notas.c` |
+| 10 | ⬜ | Dígitos invertidos: inverte os dígitos de um inteiro com divisões/restos/loop. | `src/inverte-digitos.c` |
+
+> Legenda: ⬜ a fazer · 🔄 em andamento · ✅ concluído
 
 ---
 
@@ -92,7 +115,9 @@ Depois da compilação, execute:
 ```bash
 par-ou-impar.exe
 ```
+
 ---
+
 
 ## 🎯 Objetivo
 

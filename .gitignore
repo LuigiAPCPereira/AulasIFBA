@@ -1,0 +1,21 @@
+# Binários compilados
+*.out
+*.exe
+*.o
+*.obj
+
+# Sem pasta de binários
+binarios/
+bin/
+
+# Arquivos de sistema
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Editores / IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
