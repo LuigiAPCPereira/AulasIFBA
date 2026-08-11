@@ -56,7 +56,6 @@ Conforme novos exercícios forem criados, novos arquivos poderão ser adicionado
 ## 📝 Lista de Exercícios (Repetição)
 
 Lista de exercícios passados pelo professor — implementar em **C** (não mais fluxogramas).
-O progresso também pode ser acompanhado pelo [GitHub Projects](https://github.com/users/LuigiAPCPereira/projects) do repositório.
 
 | # | Status | Enunciado | Arquivo |
 |---|--------|-----------|---------|
