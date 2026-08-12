@@ -79,9 +79,9 @@ O progresso também pode ser acompanhado pelo quadro no [GitHub Projects #2](htt
 | 03 | ✅ | Soma até zero: lê inteiros até digitar 0 e imprime a soma total. | `src/soma-ate-zero.c` |
 | 04 | ✅ | Tabuada: recebe um inteiro e imprime a tabuada de 1 a 10 com loop. | `src/tabuada.c` |
 | -- | ✅ | Pares de 0 até N: solicita número maior que 10 e imprime pares de 0 até N. | `src/loop_par.c` |
-| 05 | ⬜ | Maior e menor de 10: lê 10 inteiros e informa o maior e o menor. | `src/maior-menor-10.c` |
+| 05 | ✅ | Maior e menor de 10: lê 10 inteiros e informa o maior e o menor. | `src/maior-menor-10.c` |
 | 06 | ⬜ | Fibonacci: recebe N>0 e imprime os N primeiros termos da sequência. | `src/fibonacci.c` |
-| 07 | ⬜ | Conta pares e ímpares: lê inteiros até um negativo e conta pares/ímpares. | `src/conta-par-impar.c` |
+| 07 | ✅ | Conta pares e ímpares: lê inteiros até um negativo e conta pares/ímpares. | `src/conta-par-impar.c` |
 | 08 | ⬜ | Divisão por subtração: calcula quociente e resto só com subtração e loop. | `src/divisao-subtracao.c` |
 | 09 | ⬜ | Média de notas válidas: lê notas 0–10 até uma inválida e calcula a média das válidas. | `src/media-notas.c` |
 | 10 | ⬜ | Dígitos invertidos: inverte os dígitos de um inteiro com divisões/restos/loop. | `src/inverte-digitos.c` |
