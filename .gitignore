@@ -19,3 +19,5 @@ desktop.ini
 *.swp
 *.swo
 *~
+.zed/
+compilar

@@ -53,18 +53,32 @@ Conforme novos exercícios forem criados, novos arquivos poderão ser adicionado
 
 ---
 
+## 📝 Lista de Exercícios (Condicionais)
+
+Lista de exercícios de estruturas condicionais em **C**.
+
+| # | Status | Enunciado | Arquivo |
+|---|--------|-----------|---------|
+| 01 | ✅ | Par ou Ímpar: determine se um número é par ou ímpar. | `src/par_ou_impar.c` |
+| 02 | ✅ | Triângulo Válido: verifica se os ângulos formam um triângulo válido. | `src/triangulo.c` |
+| 03 | ✅ | Bhaskara: calcula as raízes de uma equação do segundo grau. | `src/bhaskara.c` |
+| 04 | ✅ | Idade para Voto: verifica a obrigatoriedade do voto com base na idade. | `src/idade_voto.c` |
+| 05 | ✅ | Divisibilidade: verifica se um número inteiro positivo é divisível por outro. | `src/divisivel.c` |
+
+---
+
 ## 📝 Lista de Exercícios (Repetição)
 
 Lista de exercícios passados pelo professor — implementar em **C** (não mais fluxogramas).
 O progresso também pode ser acompanhado pelo quadro no [GitHub Projects #2](https://github.com/users/LuigiAPCPereira/projects/2).
 
-
 | # | Status | Enunciado | Arquivo |
 |---|--------|-----------|---------|
-| 01 | ⬜ | Número primo: recebe um inteiro positivo e diz se é primo. | `src/primo.c` |
-| 02 | ⬜ | Fatorial: recebe um inteiro positivo e calcula seu fatorial. | `src/fatorial.c` |
-| 03 | ⬜ | Soma até zero: lê inteiros até digitar 0 e imprime a soma total. | `src/soma-ate-zero.c` |
-| 04 | ⬜ | Tabuada: recebe um inteiro e imprime a tabuada de 1 a 10 com loop. | `src/tabuada.c` |
+| 01 | ✅ | Número primo: recebe um inteiro positivo e diz se é primo. | `src/primo.c` |
+| 02 | ✅ | Fatorial: recebe um inteiro positivo e calcula seu fatorial. | `src/fatorial.c` |
+| 03 | ✅ | Soma até zero: lê inteiros até digitar 0 e imprime a soma total. | `src/soma-ate-zero.c` |
+| 04 | ✅ | Tabuada: recebe um inteiro e imprime a tabuada de 1 a 10 com loop. | `src/tabuada.c` |
+| -- | ✅ | Pares de 0 até N: solicita número maior que 10 e imprime pares de 0 até N. | `src/loop_par.c` |
 | 05 | ⬜ | Maior e menor de 10: lê 10 inteiros e informa o maior e o menor. | `src/maior-menor-10.c` |
 | 06 | ⬜ | Fibonacci: recebe N>0 e imprime os N primeiros termos da sequência. | `src/fibonacci.c` |
 | 07 | ⬜ | Conta pares e ímpares: lê inteiros até um negativo e conta pares/ímpares. | `src/conta-par-impar.c` |
@@ -73,7 +87,6 @@ O progresso também pode ser acompanhado pelo quadro no [GitHub Projects #2](htt
 | 10 | ⬜ | Dígitos invertidos: inverte os dígitos de um inteiro com divisões/restos/loop. | `src/inverte-digitos.c` |
 
 > Legenda: ⬜ a fazer · 🔄 em andamento · ✅ concluído
-
 ---
 
 ## 🛠️ Tecnologias
