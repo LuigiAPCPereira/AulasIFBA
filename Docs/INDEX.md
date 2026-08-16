@@ -1,377 +1,481 @@
 # 📚 Guia de Estudo e Consulta Pessoal — Linguagem C
 
-Material didático de consulta rápida para revisar conceitos da faculdade (IFBA), relembrar a sintaxe e a lógica da linguagem C e utilizar como fonte de referência ao criar novos programas.
+Material de consulta para revisar os conteúdos estudados em C nas aulas e nos exercícios do IFBA, com exemplos simples de sintaxe e lógica.
 
 ---
 
 ## 📑 Sumário
-1. [Conceitos Fundamentais & Tipos](#1-conceitos-fundamentais--tipos)
-2. [Sintaxe, Comentários & Sequências de Escape](#2-sintaxe-comentários--sequências-de-escape)
-3. [Entrada e Saída (`stdio.h`)](#3-entrada-e-saída-stdioh)
-4. [Operadores & Lógica Matemáticos](#4-operadores--lógica-matemáticos)
-5. [Tomada de Decisão (Condicionais)](#5-tomada-de-decisão-condicionais)
-6. [Repetição e Loops (Estruturas de Repetição)](#6-repetição-e-loops-estruturas-de-repetição)
-7. [Strings (Arrays de Caracteres)](#7-strings-arrays-de-caracteres)
-8. [Linha de Comando & Automação (`stdlib.h`)](#8-linha-de-comando--automação-stdlibh)
-9. [Biblioteca Matemática (`math.h`)](#9-biblioteca-matemática-mathh)
-10. [Códigos-Modelo do Repositório (`src/`)](#10-códigos-modelo-do-repositório-src)
+
+1. [Conceitos básicos e tipos](#1-conceitos-básicos-e-tipos)
+2. [Sintaxe, comentários e escapes](#2-sintaxe-comentários-e-escapes)
+3. [Entrada e saída com `stdio.h`](#3-entrada-e-saída-com-stdioh)
+4. [Operadores](#4-operadores)
+5. [Condicionais](#5-condicionais)
+6. [Repetição e loops](#6-repetição-e-loops)
+7. [Validação e controle dos dados](#7-validação-e-controle-dos-dados)
+8. [Biblioteca matemática](#8-biblioteca-matemática)
+9. [Exercícios de condicionais](#9-exercícios-de-condicionais)
+10. [Exercícios de repetição](#10-exercícios-de-repetição)
+11. [Compilação dos programas](#11-compilação-dos-programas)
 
 ---
 
-## 📑 Fontes
-1. https://www.w3schools.com/c/index.php
+## 📑 Fonte
 
-## 📌 1. Conceitos Fundamentais & Tipos
+- https://www.w3schools.com/c/index.php
 
-### Tipos Primitivos
-Cada tipo especifica o espaço alocado na memória RAM e como o computador interpreta o valor armazenado:
+---
 
-| Tipo | Memória | Especificador | Quando Usar | Exemplo |
-| :--- | :---: | :---: | :--- | :--- |
-| `int` | 4 bytes | `%d` ou `%i` | Números inteiros positivos ou negativos (contadores, idades, quantidades) | `int qtd = 10;` |
-| `unsigned int` | 4 bytes | `%u` | Inteiros apenas positivos (elimina sinal negativo e dobra a capacidade positiva) | `unsigned int pos = 5;` |
-| `float` | 4 bytes | `%f` | Números com vírgula/decimais de precisão simples (~6 a 7 casas) | `float angulo = 45.5f;` |
-| `double` | 8 bytes | `%lf` | Decimais de precisão dupla (~15 a 17 casas; essencial p/ cálculos precisos como Bhaskara) | `double delta = 0.0025;` |
-| `char` | 1 byte | `%c` | Um único caractere entre aspas simples (letra, símbolo ou código ASCII) | `char resp = 'S';` |
-| `char[]` | N bytes | `%s` | Texto/String (sequência de caracteres terminada em `\0`) | `char nome[30] = "IFBA";` |
+## 📌 1. Conceitos básicos e tipos
+
+Um programa em C começa com a inclusão de uma biblioteca e a criação da função `main`:
+
+```c
+#include <stdio.h>
+
+int main() {
+    // código do programa
+    return 0;
+}
+```
+
+Cada tipo de variável guarda um tipo de valor diferente:
+
+| Tipo           | Memória | Especificador | Quando Usar                             | Exemplo                   |
+| :------------- | :-----: | :-----------: | :-------------------------------------- | :------------------------ |
+| `int`          | 4 bytes | `%d` ou `%i`  | Números inteiros positivos ou negativos | `int qtd = 10;`           |
+| `unsigned int` | 4 bytes |     `%u`      | Números inteiros somente positivos      | `unsigned int pos = 5;`   |
+| `float`        | 4 bytes |     `%f`      | Números decimais com precisão simples   | `float nota = 8.5f;`      |
+| `double`       | 8 bytes |     `%lf`     | Números decimais com maior precisão     | `double delta = 2.25;`    |
+| `char`         | 1 byte  |     `%c`      | Um único caractere                      | `char resposta = 'S';`    |
+| `char[]`       | N bytes |     `%s`      | Texto ou sequência de caracteres        | `char nome[30] = "IFBA";` |
+
+### Inicialização de variáveis
+
+Inicialize as variáveis antes de usá-las. Isso evita trabalhar com valores aleatórios da memória:
+
+```c
+int numero = 0;
+int soma = 0;
+float media = 0;
+```
 
 ### Formatação de Exibição (Casas Decimais)
-* `%.2f` ou `%.2lf` → Exibe o valor arredondado com exatamente **2 casas decimais** (ex: `3.14`).
-* `%.0f` ou `%.0lf` → Exibe sem nenhuma casa decimal (arredonda para o inteiro mais próximo).
 
-### Regra Importante: Inicialização de Variáveis
-Variáveis criadas sem valor inicial contêm **"lixo de memória"** (valores residuais que estavam na RAM), o que pode causar erros em somatórios ou contadores.
-```c
-int soma = 0;        // CORRETO: garante início em zero para acumuladores
-double a = 0, b = 0; // Inicializando múltiplas variáveis no mesmo tipo
-```
+- `%.2f` ou `%.2lf` mostra duas casas decimais.
+- `%.0f` ou `%.0lf` mostra o valor sem casas decimais.
+
+Os especificadores mudam de acordo com o tipo e a função utilizada. Por exemplo, `double` usa `%lf` no `scanf` e pode usar `%.2lf` no `printf`.
 
 ---
 
 ## 💬 2. Sintaxe, Comentários & Sequências de Escape
 
-### Tipos de Comentários em C
-Comentários são ignorados pelo compilador e servem para organizar o código e explicar trechos lógicos.
+Cada instrução termina com ponto e vírgula (`;`). As chaves (`{}`) marcam o início e o fim de um bloco.
 
-| Sintaxe | Tipo | Descrição | Exemplo |
-| :---: | :--- | :--- | :--- |
-| `//` | Linha única | Comenta tudo da posição do `//` até o final da linha atual | `int a = 10; // Inicializa a com 10` |
-| `/* ... */` | Múltiplas linhas | Comenta blocos inteiros, podendo abranger várias linhas | `/* Este bloco de código\n calcula o delta */` |
+### Comentários
+
+Comentários ajudam a organizar o código e explicar sua lógica:
 
 ```c
-// Comentário de uma linha só
+// Este comentário ocupa uma linha.
 
-/*
-   Comentário de bloco / múltiplas linhas.
-   Útil para documentação de funções ou 
-   desativar temporariamente um trecho de código.
-*/
+/* Este comentário pode ocupar
+   várias linhas. */
 ```
 
 ### Sequências de Escape (Escape Sequences)
-Caracteres especiais precedidos por barra invertida `\` para formatar saída de texto em `printf` e strings:
 
-| Sequência | Nome | Função | Exemplo em Código | Saída no Terminal |
-| :---: | :--- | :--- | :--- | :--- |
-| `\n` | Newline | Insere uma nova linha (quebra de linha) | `printf("Olá\nMundo");` | `Olá`<br>`Mundo` |
-| `\t` | Horizontal Tab | Insere um tab (espaçamento horizontal padrão) | `printf("Nome:\tLuigi");` | `Nome:   Luigi` |
-| `\"` | Double Quote | Insere aspas duplas dentro de uma string | `printf("Ele disse: \"Olá\"");` | `Ele disse: "Olá"` |
-| `\\` | Backslash | Insere um caractere de barra invertida (`\`) | `printf("Caminho: C:\\src");` | `Caminho: C:\src` |
-| `\'` | Single Quote | Insere aspas simples | `printf("Caractere: \'A\'");` | `Caractere: 'A'` |
+Sequências de escape são caracteres especiais usados principalmente dentro do `printf`:
+
+| Sequência | Nome           | Função                     | Exemplo                         |
+| :-------: | :------------- | :------------------------- | :------------------------------ |
+|   `\n`    | Newline        | Pula para a próxima linha  | `printf("Olá\nMundo");`         |
+|   `\t`    | Horizontal Tab | Adiciona uma tabulação     | `printf("Nome:\tLuigi");`       |
+|   `\"`    | Double Quote   | Mostra aspas duplas        | `printf("Ele disse: \"Olá\"");` |
+|   `\\`    | Backslash      | Mostra uma barra invertida | `printf("Caminho: C:\\\\src");` |
+|   `\'`    | Single Quote   | Mostra aspas simples       | `printf("Caractere: \'A\'");`   |
+
+Exemplo:
+
+```c
+printf("Nome:\tLuigi\n");
+```
 
 ---
 
-## 📥 3. Entrada e Saída (`stdio.h`)
+## 📥 3. Entrada e saída com `stdio.h`
 
-### Exibição (`printf`)
-Função para exibir mensagens e valores formatados no terminal.
+### Mostrando informações com `printf`
+
+Use `printf` para mostrar textos e resultados:
+
 ```c
-printf("Texto simples\n"); // \n pula para a próxima linha
-printf("Resultado: %d |\t Média: %.2lf\n", total, media);
+printf("Digite um número: ");
+printf("Resultado: %d\n", numero);
+printf("Média: %.1f\n", media);
 ```
 
-### Leitura de Dados (`scanf`)
-Lê valores digitados pelo usuário no teclado.
+### Lendo informações com `scanf`
+
+Use `scanf` para receber valores digitados:
+
 ```c
-int idade;
-scanf("%d", &idade); // Lê inteiro e guarda no endereço da variável 'idade'
+int numero;
+scanf("%d", &numero);
+
+float nota;
+scanf("%f", &nota);
 
 double a, b, c;
-scanf("%lf %lf %lf", &a, &b, &c); // Lê 3 decimais de uma só vez
+scanf("%lf %lf %lf", &a, &b, &c);
 ```
 
-### 🔍 Por que usar o operador `&` (Endereço) no `scanf`?
-* **Variáveis Primitivas (`int`, `float`, `double`, `char`)**: O `scanf` precisa saber **onde na memória RAM** a variável está guardada para escrever o valor direto nela. O símbolo `&` pega esse endereço de memória.
-* **Strings (`char[]`)**: **Não** usam `&`. Em C, o próprio nome de um array já representa o endereço de memória do seu primeiro elemento.
-```c
-char nome[50];
-scanf("%s", nome); // Sem '&'!
-```
+No `scanf`, use `&` antes do nome das variáveis para informar o endereço onde o valor deve ser armazenado.
 
 ---
 
-## 🧮 4. Operadores & Lógica Matemáticos
+## 🧮 4. Operadores
 
-### Operadores Aritméticos
-* `+` (Adição), `-` (Subtração), `*` (Multiplicação), `/` (Divisão).
-* `%` (**Módulo**): Retorna o **resto da divisão inteira**.
-  * **Verificar se é par/ímpar**: `numero % 2 == 0` (se resto for 0, é par; se for 1, é ímpar).
-  * **Verificar se é divisível**: `numero % divisor == 0`.
+### Operadores aritméticos
 
-```c
-10 % 3 = 1  // 10 dividido por 3 é 3, com resto 1
-10 % 2 = 0  // Resto é 0 -> Número Par
-```
+Use estes operadores para fazer cálculos:
 
-### Atribuição Composta & Incremento
-Atalhos sintáticos para atualizar o valor de uma variável a partir dela mesma:
-* `soma += numero;` → O mesmo que `soma = soma + numero;`
-* `fatorial *= i;`  → O mesmo que `fatorial = fatorial * i;`
-* `i++;`           → O mesmo que `i = i + 1;` (Incremento)
-* `i--;`           → O mesmo que `i = i - 1;` (Decremento)
+| Operador | Operação                 |
+| :------: | :----------------------- |
+|   `+`    | Soma                     |
+|   `-`    | Subtração                |
+|   `*`    | Multiplicação            |
+|   `/`    | Divisão                  |
+|   `%`    | Resto da divisão inteira |
 
-### Operadores Relacionais e Lógicos
-Retornam sempre `1` (Verdadeiro) ou `0` (Falso) para controle de decisões.
+O operador `%` é muito usado nos exercícios:
 
-| Operador | Significado | Exemplo |
-| :---: | :--- | :--- |
-| `==` | Igual a *(Cuidado: `=` é atribuição, `==` é comparação!)* | `if (a == b)` |
-| `!=` | Diferente de | `if (numero != 0)` |
-| `>` / `<` | Maior que / Menor que | `if (idade > 18)` |
-| `>=` / `<=` | Maior ou igual / Menor ou igual | `if (nota >= 7.0)` |
-| `&&` | **E (AND)**: Todas as condições devem ser verdadeiras simultaneamente | `if (idade >= 18 && idade <= 70)` |
-| `\|\|` | **OU (OR)**: Pelo menos uma das condições deve ser verdadeira | `if (idade < 16 \|\| idade > 70)` |
-| `!` | **NÃO (NOT)**: Inverte o valor lógico (Verdadeiro vira Falso) | `if (!primo)` |
-
----
-
-## 🔀 5. Tomada de Decisão (Condicionais)
-
-### 1. `if / else if / else`
-Avalia as condições de cima para baixo. Executa o primeiro bloco cuja condição for verdadeira.
-```c
-if (idade < 0) {
-    printf("Idade inválida.\n");
-} else if (idade < 16) {
-    printf("Não pode votar.\n");
-} else if (idade >= 18 && idade <= 70) {
-    printf("Voto obrigatório.\n");
-} else {
-    printf("Voto facultativo.\n");
-}
-```
-
-### 2. Operador Ternário (`? :`)
-Estrutura enxuta para decidir o valor de uma atribuição em uma linha só.
-```c
-// Sintaxe: (condição) ? valor_se_verdadeiro : valor_se_falso;
-int maior = (a > b) ? a : b;
-```
-
-### 3. `switch / case`
-Ideal para comparar **uma única variável** contra **vários valores fixos** (inteiros ou `char`).
-```c
-switch (opcao) {
-    case 1:
-        printf("Opção 1 selecionada\n");
-        break; // O 'break' é essencial para sair do switch e não executar os cases abaixo
-    case 2:
-        printf("Opção 2 selecionada\n");
-        break;
-    default:
-        printf("Opção padrão / Inválida\n");
-        break;
-}
-```
-
----
-
-## 🔁 6. Repetição e Loops (Estruturas de Repetição)
-
-### Qual estrutura escolher?
-1. **`for`**: Quando **se sabe de antemão** o número de repetições (ex: repetir 10 vezes, percorrer de 1 a N).
-2. **`while`**: Quando a repetição depende de uma condição e ela **pode ser falsa de início** (pode executar 0 vezes).
-3. **`do...while`**: Quando o bloco **deve ser executado obrigatoriamente pelo menos 1 vez** antes de testar a condição (ideal para validação de formulários/menu).
-
-### Exemplos Práticos
-
-#### `for` (Inicialização ; Condição ; Incremento)
-```c
-// Imprime números de 1 a 10
-for (int i = 1; i <= 10; i++) {
-    printf("%d ", i);
-}
-```
-
-#### `while` (Pré-testado)
-```c
-// Repete enquanto o usuário não digitar 0
-int numero = 0;
-scanf("%d", &numero);
-while (numero != 0) {
-    // faz algo com o numero
-    scanf("%d", &numero);
-}
-```
-
-#### `do...while` (Pós-testado — Validação de Entrada)
-```c
-int num = 0;
-do {
-    printf("Digite um número positivo: ");
-    scanf("%d", &num);
-    
-    if (num <= 0) {
-        printf("[ERRO] O número precisa ser maior que zero!\n");
-    }
-} while (num <= 0); // Fica preso no loop enquanto a entrada for inválida
-```
-
-### Comandos Especiais nos Loops
-* `break;` → Sai imediatamente do loop atual.
-* `continue;` → Interrompe apenas a iteração atual e salta direto para a próxima volta do loop.
-
----
-
-## 🧵 7. Strings (Arrays de Caracteres)
-
-Em C não há tipo "String" nativo. Uma string é uma sequência de `char` terminada com o caractere nulo `\0` (que avisa ao C onde o texto termina na memória).
-
-```c
-// Reservando espaço para até 49 caracteres + 1 para o '\0'
-char nome[50];
-
-printf("Digite seu nome: ");
-scanf("%s", nome); // Lê apenas a primeira palavra (para ao encontrar espaço)
-
-printf("Nome: %s\n", nome);
-```
-
----
-
-## 💻 8. Linha de Comando & Automação (`stdlib.h`)
-
-### Argumentos da Função `main` (`argc` e `argv`)
-Permitem passar parâmetros para o programa diretamente pelo terminal na execução (ex: `./compilar programa.c`).
-
-```c
-#include <stdio.h>
-#include <stdlib.h> // Contém as funções system() e sprintf()
-
-int main(int argc, char *argv[]) {
-    // argc (ARGument Count): Quantidade total de argumentos recebidos
-    // argv (ARGument Vector): Array de textos com os argumentos
-    // argv[0] -> Nome do próprio programa executável (ex: "./compilar")
-    // argv[1] -> Primeiro parâmetro passado (ex: "bhaskara.c")
-    
-    if (argc != 2) {
-        printf("Uso correto: %s <nome_do_arquivo.c>\n", argv[0]);
-        return 1;
-    }
-
-    char comando[256];
-    // sprintf: Monta uma string formatada dentro da variável 'comando'
-    sprintf(comando, "gcc src/%s -o binarios/%s && ./binarios/%s", argv[1], argv[1], argv[1]);
-    
-    // system: Envia o comando montado para ser executado no terminal do SO
-    system(comando);
-    
-    return 0;
-}
-```
-
----
-
-## 📐 9. Biblioteca Matemática (`math.h`)
-
-Para operações matemáticas avançadas, inclua `#include <math.h>`.
-
-| Função | Descrição | Exemplo | Resultado |
-| :--- | :--- | :--- | :--- |
-| `sqrt(x)` | Retorna a **raiz quadrada** de `x` | `sqrt(25.0)` | `5.0` |
-| `pow(b, e)` | Retorna a **base `b` elevada ao expoente `e`** | `pow(2.0, 3.0)` | `8.0` |
-| `fabs(x)` | Retorna o **valor absoluto** (remove sinal negativo) | `fabs(-10.5)` | `10.5` |
-
-> ⚠️ **Nota de Compilação no Linux (GCC)**: Ao utilizar a `<math.h>`, pode ser necessário adicionar a flag `-lm` ao final da compilação:
-> `gcc programa.c -o programa -lm`
-
----
-
-## 💡 10. Códigos-Modelo do Repositório (`src/`)
-
-### A. Verificar se Número é Par ou Ímpar (`src/par_ou_impar.c`)
 ```c
 if (numero % 2 == 0) {
-    printf("O número %d é par.\n", numero);
-} else {
-    printf("O número %d é ímpar.\n", numero);
+    // o resto é zero, então o número é par
 }
 ```
 
-### B. Somar Números Até Digitar Zero (`src/soma-ate-zero.c`)
-```c
-int soma = 0, numero = 0;
-printf("Digite um número (0 para parar): ");
-scanf("%d", &numero);
+Também é possível usar atribuições abreviadas:
 
+```c
+soma += numero;      // soma = soma + numero
+fatorial *= i;       // fatorial = fatorial * i
+i++;                 // i = i + 1
+i--;                 // i = i - 1
+```
+
+### Operadores de comparação
+
+Use comparações dentro das condições:
+
+| Operador | Significado    |
+| :------: | :------------- |
+|   `==`   | Igual          |
+|   `!=`   | Diferente      |
+|   `>`    | Maior          |
+|   `<`    | Menor          |
+|   `>=`   | Maior ou igual |
+|   `<=`   | Menor ou igual |
+
+Não confunda `=` com `==`: `=` recebe um valor e `==` compara dois valores.
+
+### Como digitar os operadores no teclado
+
+Em um teclado comum, os símbolos podem ser digitados assim:
+
+| Símbolo | Tecla |
+| :-----: | :---: |
+|   `=`   |  `=`  |
+|   `!`   |  `!`  |
+|   `<`   |  `<`  |
+|   `>`   |  `>`  |
+
+Para formar os operadores completos, digite os símbolos na ordem indicada:
+
+| Operador | Sequência |
+| :------: | :-------- |
+|   `==`   | `=` e `=` |
+|   `!=`   | `!` e `=` |
+|   `>=`   | `>` e `=` |
+|   `<=`   | `<` e `=` |
+
+A posição das teclas pode mudar de acordo com o modelo e o idioma do teclado. O importante é localizar os símbolos `<`, `>`, `!` e `=`.
+
+### Operadores lógicos
+
+| Operador | Significado                                        | Exemplo                      |
+| :------: | :------------------------------------------------- | :--------------------------- |
+|   `&&`   | E: todas as condições precisam ser verdadeiras     | `idade >= 18 && idade <= 70` |
+|  `\|\|`  | OU: pelo menos uma condição precisa ser verdadeira | `nota < 0 \|\| nota > 10`    |
+|   `!`    | NÃO: inverte uma condição                          | `!primo`                     |
+
+---
+
+## 🔀 5. Condicionais
+
+Use condicionais para escolher o que deve acontecer em cada situação.
+
+### `if`, `else if` e `else`
+
+```
+if (numero > 0) {
+    printf("Positivo\n");
+} else if (numero == 0) {
+    printf("Zero\n");
+} else {
+    printf("Negativo\n");
+}
+```
+
+- `if` testa a primeira condição.
+- `else if` testa outra condição se a anterior for falsa.
+- `else` executa quando nenhuma condição anterior for verdadeira.
+
+Nos exercícios, as condicionais foram usadas para verificar paridade, validade de triângulo, idade para voto, divisibilidade e delta de Bhaskara.
+
+---
+
+## 🔁 6. Repetição e loops
+
+Use loops quando precisar repetir uma parte do código.
+
+### `for`
+
+Use `for` quando já souber quantas vezes repetir:
+
+```c
+for (int i = 1; i <= 10; i++) {
+    printf("%d\n", i);
+}
+```
+
+### `while`
+
+Use `while` quando a repetição depender de uma condição:
+
+```c
 while (numero != 0) {
-    soma += numero; // Acumula a soma
-    printf("Digite outro número (0 para parar): ");
+    soma += numero;
     scanf("%d", &numero);
 }
-printf("A soma total é: %d\n", soma);
 ```
 
-### C. Calculadora de Fatorial com `for` (`src/fatorial.c`)
+Se a condição já começar falsa, o `while` pode não executar nenhuma vez.
+
+### `do...while`
+
+Use `do...while` quando o bloco precisar executar pelo menos uma vez, como na validação de entradas:
+
 ```c
-int numero = 5, fatorial = 1;
-for (int i = 1; i <= numero; i++) {
-    fatorial *= i; // Multiplica 1 * 2 * 3 * ... * N
-}
-printf("O fatorial de %d é %d\n", numero, fatorial);
-```
-
-### D. Verificar se um Número é Primo (`src/primo.c`)
-```c
-int numero = 17, divisor = 2;
-
-if (numero <= 1) {
-    printf("O número %d não é primo.\n", numero);
-} else {
-    while (divisor < numero) {
-        if (numero % divisor == 0) {
-            printf("O número %d não é primo.\n", numero);
-            break; // Encontrou divisor além de 1 e dele mesmo; interrompe
-        }
-        divisor++;
-    }
-    if (divisor == numero) {
-        printf("O número %d é primo.\n", numero);
-    }
-}
-```
-
-### E. Resolução de Equação do 2º Grau / Bhaskara (`src/bhaskara.c`)
-```c
-double a = 0, b = 0, c = 0, delta = 0, x1 = 0, x2 = 0;
-
-// Garante que 'a' seja diferente de 0 (pois a=0 não é equação do 2º grau)
 do {
-    printf("Digite os coeficientes a, b e c: ");
-    scanf("%lf %lf %lf", &a, &b, &c);
-    if (a == 0) printf("[ERRO] 'a' não pode ser zero!\n");
-} while (a == 0);
+    printf("Digite um número positivo: ");
+    scanf("%d", &numero);
+} while (numero <= 0);
+```
 
-delta = (b * b) - 4 * a * c;
+### `break`
 
-if (delta > 0) {
-    x1 = (-b + sqrt(delta)) / (2 * a);
-    x2 = (-b - sqrt(delta)) / (2 * a);
-    printf("Duas raízes reais e distintas: x1 = %.2lf e x2 = %.2lf\n", x1, x2);
-} else if (delta == 0) {
-    x1 = -b / (2 * a);
-    printf("Uma raiz real e única: x = %.2lf\n", x1);
-} else {
-    printf("Não tem raízes reais (delta negativo).\n");
+Use `break` para sair imediatamente de um loop:
+
+```c
+while (1) {
+    scanf("%d", &numero);
+
+    if (numero < 0) {
+        break;
+    }
 }
 ```
+
+---
+
+## ✅ 7. Validação e controle dos dados
+
+Valide os dados quando o exercício exigir uma entrada específica. Para isso, repita a leitura até receber um valor válido.
+
+```c
+do {
+    scanf("%d", &numero);
+
+    if (numero <= 0) {
+        printf("Digite um valor válido.\n");
+    }
+} while (numero <= 0);
+```
+
+Também uso valores especiais para encerrar a leitura:
+
+- `0` encerra a soma de números;
+- um número negativo encerra a contagem de pares e ímpares;
+- uma nota menor que `0` ou maior que `10` encerra a leitura de notas.
+
+Para acumular resultados, inicialize uma variável antes do loop:
+
+```c
+int soma = 0;
+int quantidade = 0;
+
+soma += numero;
+quantidade++;
+```
+
+Para calcular uma média, divida a soma pela quantidade de valores válidos:
+
+```c
+media = soma / quantidade;
+```
+
+Verifique se `quantidade > 0` antes da divisão para não dividir por zero.
+
+---
+
+## 📐 8. Biblioteca matemática
+
+No exercício de Bhaskara, a biblioteca `math.h` é incluída para usar a raiz quadrada:
+
+```c
+#include <math.h>
+
+raiz = sqrt(valor);
+```
+
+Na fórmula de Bhaskara, primeiro calcule o delta:
+
+```c
+delta = (b * b) - 4 * a * c;
+```
+
+Depois verifico o resultado:
+
+- Se `delta > 0`, encontro duas raízes reais.
+- Se `delta == 0`, encontro uma raiz real.
+- Se `delta < 0`, não encontro raízes reais.
+
+No GCC, pode ser necessário adicionar a opção `-lm` ao compilar:
+
+```bash
+gcc bhaskara.c -o bhaskara -lm
+```
+
+---
+
+## 🔀 9. Exercícios de condicionais
+
+Os exercícios de condicionais estão nos seguintes arquivos:
+
+| Arquivo              | Conteúdo praticado                                                  |
+| :------------------- | :------------------------------------------------------------------ |
+| `src/par_ou_impar.c` | Uso de `% 2` para descobrir se um número é par ou ímpar.            |
+| `src/triangulo.c`    | Soma de três ângulos e verificação do resultado `180`.              |
+| `src/bhaskara.c`     | Validação de `a`, cálculo do delta e tratamento de três resultados. |
+| `src/idade_voto.c`   | Comparação de faixas de idade usando `if` e `else if`.              |
+| `src/divisivel.c`    | Uso do resto da divisão para verificar se um número divide outro.   |
+
+### Exemplo: par ou ímpar
+
+```c
+if (numero % 2 == 0) {
+    printf("O número é par.\n");
+} else {
+    printf("O número é ímpar.\n");
+}
+```
+
+---
+
+## 🔁 10. Exercícios de repetição
+
+Os exercícios de repetição praticam `for`, `while`, `do...while`, validações, contadores e acumuladores:
+
+| Tarefa | Arquivo                   | Conteúdo praticado                                             |
+| :----: | :------------------------ | :------------------------------------------------------------- |
+|   01   | `src/primo.c`             | Teste de divisores com `%` para descobrir se o número é primo. |
+|   02   | `src/fatorial.c`          | Multiplicação dos números de `1` até `N` usando `for`.         |
+|   03   | `src/soma-ate-zero.c`     | Soma de números até receber `0`.                               |
+|   04   | `src/tabuada.c`           | Repetição da multiplicação de `1` até `10` usando `while`.     |
+| Extra  | `src/loop_par.c`          | Impressão dos números pares de `0` até `N`.                    |
+|   05   | `src/maior-menor-10.c`    | Leitura de 10 números e comparação do maior e do menor.        |
+|   06   | `src/fibonacci.c`         | Geração dos primeiros `N` termos de Fibonacci.                 |
+|   07   | `src/conta-par-impar.c`   | Contagem de pares e ímpares até receber um número negativo.    |
+|   08   | `src/divisao-subtracao.c` | Cálculo de quociente e resto usando subtrações repetidas.      |
+|   09   | `src/media-notas.c`       | Soma de notas válidas e cálculo da média.                      |
+|   10   | `src/inverte-digitos.c`   | Separação dos algarismos com `% 10` e `/ 10` para invertê-los. |
+
+### Fatorial
+
+O fatorial começa com `1`, porque multiplicar por zero faria todo o resultado virar zero:
+
+```c
+int fatorial = 1;
+
+for (int i = 1; i <= numero; i++) {
+    fatorial *= i;
+}
+```
+
+### Divisão usando subtração
+
+O resto começa com o valor do dividendo. Enquanto o resto for maior ou igual ao divisor, faça uma subtração e aumente o quociente:
+
+```c
+resto = dividendo;
+
+while (resto >= divisor) {
+    resto -= divisor;
+    quociente++;
+}
+```
+
+### Invertendo os dígitos
+
+Para inverter os dígitos, pegue o último algarismo com `% 10`, acrescente-o ao resultado e retire-o usando `/ 10`:
+
+```c
+while (numero > 0) {
+    resto = numero % 10;
+    invertido = invertido * 10 + resto;
+    numero = numero / 10;
+}
+```
+
+---
+
+## ▶️ 11. Compilação dos programas
+
+Para compilar manualmente, acesse a pasta `src/`:
+
+```bash
+cd src
+gcc primo.c -o primo
+```
+
+Depois, no Linux ou macOS, execute assim:
+
+```bash
+./primo
+```
+
+Para o programa de Bhaskara, adicione `-lm`:
+
+```bash
+gcc bhaskara.c -o bhaskara -lm
+```
+
+## 📈 Progresso
+
+Conteúdos já praticados:
+
+- entrada e saída de dados;
+- variáveis `int`, `float` e `double`;
+- operadores aritméticos, relacionais e lógicos;
+- condicionais;
+- loops `for`, `while` e `do...while`;
+- validação de entradas;
+- contadores e acumuladores;
+- cálculo de média, fatorial e Fibonacci;
+- uso do resto e da divisão inteira para trabalhar com algarismos;
+- uso da biblioteca `math.h` no exercício de Bhaskara.
+
+Os próximos assuntos podem incluir funções, vetores e outros conteúdos das próximas aulas.
