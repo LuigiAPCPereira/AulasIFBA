@@ -53,7 +53,8 @@ Conforme novos exercícios forem criados, novos arquivos poderão ser adicionado
 
 ---
 
-## 📝 Lista de Exercícios (Condicionais)
+<details>
+<summary><strong>📝 Lista de Exercícios (Condicionais)</strong></summary>
 
 Lista de exercícios de estruturas condicionais em **C**.
 
@@ -65,9 +66,14 @@ Lista de exercícios de estruturas condicionais em **C**.
 | 04  | ✅     | Idade para Voto: verifica a obrigatoriedade do voto com base na idade.        | `src/idade_voto.c`   |
 | 05  | ✅     | Divisibilidade: verifica se um número inteiro positivo é divisível por outro. | `src/divisivel.c`    |
 
+</details>
+
 ---
 
-## 📝 Lista de Exercícios (Repetição)
+<details>
+<summary><strong>📝 Lista de Exercícios (Repetição)</strong></summary>
+
+<mark>✅ Todas as tarefas desta lista foram concluídas.</mark>
 
 Lista de exercícios passados pelo professor — implementar em **C**.
 
@@ -86,6 +92,8 @@ Lista de exercícios passados pelo professor — implementar em **C**.
 | 10  | ✅     | Dígitos invertidos: inverte os dígitos de um inteiro com divisões/restos/loop.        | `src/inverte-digitos.c`   |
 
 > Legenda: ⬜ a fazer · 🔄 em andamento · ✅ concluído
+
+</details>
 
 ---
 

@@ -179,29 +179,29 @@ Use comparações dentro das condições:
 |   `>=`   | Maior ou igual |
 |   `<=`   | Menor ou igual |
 
-Não confunda `=` com `==`: `=` recebe um valor e `==` compara dois valores.
+<mark>Não confunda `=` com `==`:</mark> `=` recebe um valor e `==` compara dois valores.
 
 ### Como digitar os operadores no teclado
 
 Em um teclado comum, os símbolos podem ser digitados assim:
 
-| Símbolo | Tecla |
-| :-----: | :---: |
-|   `=`   |  `=`  |
-|   `!`   |  `!`  |
-|   `<`   |  `<`  |
-|   `>`   |  `>`  |
+|   Símbolo    |    Tecla     |
+| :----------: | :----------: |
+| <kbd>=</kbd> | <kbd>=</kbd> |
+| <kbd>!</kbd> | <kbd>!</kbd> |
+|     `<`      |     `<`      |
+|     `>`      |     `>`      |
 
 Para formar os operadores completos, digite os símbolos na ordem indicada:
 
-| Operador | Sequência |
-| :------: | :-------- |
-|   `==`   | `=` e `=` |
-|   `!=`   | `!` e `=` |
-|   `>=`   | `>` e `=` |
-|   `<=`   | `<` e `=` |
+|         Operador         | Sequência                   |
+| :----------------------: | :-------------------------- |
+| <kbd>=</kbd><kbd>=</kbd> | <kbd>=</kbd> e <kbd>=</kbd> |
+| <kbd>!</kbd><kbd>=</kbd> | <kbd>!</kbd> e <kbd>=</kbd> |
+|           `>=`           | `>` e <kbd>=</kbd>          |
+|           `<=`           | `<` e <kbd>=</kbd>          |
 
-A posição das teclas pode mudar de acordo com o modelo e o idioma do teclado. O importante é localizar os símbolos `<`, `>`, `!` e `=`.
+A posição das teclas pode mudar de acordo com o modelo e o idioma do teclado. O importante é localizar os símbolos `<`, `>`, <kbd>!</kbd> e <kbd>=</kbd>.
 
 ### Operadores lógicos
 
@@ -341,17 +341,17 @@ No exercício de Bhaskara, a biblioteca `math.h` é incluída para usar a raiz q
 raiz = sqrt(valor);
 ```
 
-Na fórmula de Bhaskara, primeiro calcule o delta:
+Na fórmula de Bhaskara, o delta usa a expressão <code>b<sup>2</sup> - 4ac</code>:
 
 ```c
 delta = (b * b) - 4 * a * c;
 ```
 
-Depois verifico o resultado:
+Depois, verifique o resultado:
 
-- Se `delta > 0`, encontro duas raízes reais.
-- Se `delta == 0`, encontro uma raiz real.
-- Se `delta < 0`, não encontro raízes reais.
+- Se `delta > 0`, são encontradas duas raízes reais.
+- Se `delta == 0`, é encontrada uma raiz real.
+- Se `delta < 0`, não são encontradas raízes reais.
 
 No GCC, pode ser necessário adicionar a opção `-lm` ao compilar:
 
