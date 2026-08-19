@@ -73,18 +73,17 @@ void decimalb(int numero) {
 }
 
 
-
 int main(){
     int opcao = 0;
     printf("\n#################################\n");
-    printf("##            MENU             ##\n");
-    printf("##                             ##\n");
-    printf("## [1] Baskara                 ##\n");
-    printf("## [2] fibonacci               ##\n");
-    printf("## [3] Binário para Decimal    ##\n");
-    printf("## [4] Decimal para binário    ##\n");
-    printf("## [5] Sair                    ##\n");
-    printf("##                             ##\n");
+    printf("##            MENU            ##\n");
+    printf("##                            ##\n");
+    printf("## [1] Baskara                ##\n");
+    printf("## [2] fibonacci              ##\n");
+    printf("## [3] Binário para Decimal   ##\n");
+    printf("## [4] Decimal para binário   ##\n");
+    printf("## [5] Sair                   ##\n");
+    printf("##                            ##\n");
     printf("#################################\n");
     printf("\n-> Selecione uma opção do menu: ");
     scanf("%d", &opcao);

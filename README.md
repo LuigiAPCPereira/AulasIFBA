@@ -8,7 +8,7 @@ Atualmente estou estudando **C** como primeira linguagem da graduação. Os exer
 
 - `src/` — exercícios e atividades em C;
 - `src/auxiliar/` — código auxiliar usado durante os estudos;
-- `menu.c` — experimento de prática reunindo alguns conteúdos estudados;
+- `src/menu.c` — atividade desenvolvida durante uma aula, ainda não revisada e que será refeita posteriormente;
 - `docs/notas-de-estudo.md` — notas pessoais de estudo e consulta.
 
 ## Compilação
