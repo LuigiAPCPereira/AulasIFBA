@@ -1,6 +1,8 @@
-# 📚 Guia de Estudo e Consulta Pessoal — Linguagem C
+# Notas de Estudo e Consulta Pessoal — Linguagem C
 
-Material de consulta para revisar os conteúdos estudados em C nas aulas e nos exercícios do IFBA, com exemplos simples de sintaxe e lógica.
+Estas notas reúnem conteúdos que consultei e estudei durante as aulas e a resolução dos exercícios deste repositório.
+
+A organização e a redação do material tiveram apoio de ferramentas de IA e de fontes externas indicadas quando aplicável. O objetivo é servir como **material pessoal de revisão**, não como documentação autoral da linguagem C.
 
 ---
 
