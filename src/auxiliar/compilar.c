@@ -17,10 +17,11 @@ int main(int argc, char *argv[]) {
   // arquivo .c).
   if (argc != 2) {
     printf("-> Uso correto: ./compilar <programa.c>\n");
+    return 1;
   }
   if (argc == 3) {
     // argv[2] é o terceiro argumento digitado, por exemplo "-lm".
-    sprintf(comando, "gcc src/%s -o binarios/%s %s && ./binarios/%s",
+    sprintf(comando, "gcc src/%s -o ./binarios/%s %s && ./binarios/%s",
 
             argv[1], argv[1], argv[2], argv[1]);
 
@@ -30,7 +31,7 @@ int main(int argc, char *argv[]) {
   } else {
     // Monta o comando do terminal para compilar o arquivo dentro de src/
     // e executar o binário gerado dentro da pasta binarios/.
-    sprintf(comando, "gcc src/%s -o binarios/%s && ./binarios/%s", argv[1],
+    sprintf(comando, "gcc src/%s -o ./binarios/%s && ./binarios/%s", argv[1],
             argv[1], argv[1]);
 
     // Executa o comando montado no terminal do sistema operacional.
